@@ -1,0 +1,14 @@
+{
+  "name": "trelloapi_automation",
+  "version": "1.0.0",
+  "description": "projeto de automação de testes de api usando cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Igor Ferreira",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.16.0"
+  }
+}
