@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://api.trello.com'
+    baseUrl: 'https://api.trello.com',
+  
   },
 });

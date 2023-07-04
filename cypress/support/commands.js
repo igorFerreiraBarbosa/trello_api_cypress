@@ -27,7 +27,35 @@
 Cypress.Commands.add('createBoard', (name) => {
     return cy.request({
         method: 'POST',
-        url: 'https://api.trello.com/1/boards/?name='+name+'&key=cd5940d8cb089e98eb840a219df39926&token=ATTA296e059fd34a1091b6ea3dd587d22e80408d6c480d9328bd532fa4881d53a2c09D753943'
+        url: Cypress.config('baseUrl')+'/1/boards/?name='+name+'&key='+Cypress.env('trelloapi_key')+'&token='+Cypress.env('trelloapi_token')
     })
 
+})
+
+Cypress.Commands.add('createList', (idBoard) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.config('baseUrl')+'/1/boards/'+idBoard+'/lists?name=myFirstList&key='+Cypress.env('trelloapi_key')+'&token='+Cypress.env('trelloapi_token')
+    })
+})
+
+Cypress.Commands.add('createCard', (idList) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.config('baseUrl')+'/1/cards?idList='+idList+'&key='+Cypress.env('trelloapi_key')+'&token='+Cypress.env('trelloapi_token')
+    })
+})
+
+Cypress.Commands.add('deleteCard', (idCard) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.config('baseUrl')+'/1/cards/'+idCard+'?key='+Cypress.env('trelloapi_key')+'&token='+Cypress.env('trelloapi_token')
+    })
+})
+
+Cypress.Commands.add('deleteBoard', (idBoard) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.config('baseUrl')+'/1/boards/'+idBoard+'?key='+Cypress.env('trelloapi_key')+'&token='+Cypress.env('trelloapi_token')
+    })
 })
